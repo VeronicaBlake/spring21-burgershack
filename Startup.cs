@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using burgershack.Services;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using MySqlConnector;
 
 namespace burgershack
 {
@@ -25,7 +27,7 @@ namespace burgershack
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public MySqlConnection ConfigureServices(IServiceCollection services)
         {
 
             services.AddControllers();
@@ -39,6 +41,18 @@ namespace burgershack
             services.AddTransient<DrinksService>();
             services.AddTransient<SidesService>();
 
+
+            services.AddScoped<IDbConnection>(x => CreateDbConnection());
+            {
+                String connectionString = Configuration["db:gearhost"];
+                return new MySqlConnection(connectionString);
+            };
+            //NOTE fixed return type because it was throwing an error about the MySqlConnection
+        }
+
+        private IDbConnection CreateDbConnection()
+        {
+            throw new NotImplementedException();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

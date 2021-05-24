@@ -7,7 +7,7 @@ namespace burgershack.Repositories
     public class SidesRepository : IRepo<Side>
     {
 
-        public IEnumerable<Side> GetAll()
+        public IEnumerable<Side> Get()
         {
             throw new System.NotImplementedException();
         }
@@ -16,12 +16,12 @@ namespace burgershack.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Side GetById(int id)
+        public Side GetOne(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public Side Update(Side data)
+        public bool Update(Side data)
         {
             throw new System.NotImplementedException();
         }

@@ -7,7 +7,7 @@ namespace burgershack.Repositories
     public class DrinksRepository : IRepo<Drink>
     {
 
-        public IEnumerable<Drink> GetAll()
+        public IEnumerable<Drink> Get()
         {
             throw new System.NotImplementedException();
         }
@@ -16,12 +16,12 @@ namespace burgershack.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Drink GetById(int id)
+        public Drink GetOne(int id)
         {
             throw new System.NotImplementedException();
         }
 
-        public Drink Update(Drink data)
+        public bool Update(Drink data)
         {
             throw new System.NotImplementedException();
         }

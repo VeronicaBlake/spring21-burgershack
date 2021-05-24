@@ -4,9 +4,9 @@ namespace burgershack.Interfaces
 {
     public interface IRepo<T>
     {
-        IEnumerable<T> GetAll();
+        IEnumerable<T> Get();
+        T GetOne(int id);
         T Create(T data);
-        T GetById(int id);
-        T Update(T data);
+        bool Update(T data);
     }
 }
