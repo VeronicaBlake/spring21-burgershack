@@ -21,32 +21,8 @@ namespace burgershack.Controllers
             _bs = bs;
         }
 
-        public ActionResult<Burger> Create()
-        {
-            try
-            {
-                throw new NotImplementedException();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
-
-        public ActionResult<Burger> Delete()
-        {
-            try
-            {
-                throw new NotImplementedException();
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-        }
-
         [HttpGet]
-        public ActionResult<IEnumerable<Burger>> Get()
+        public ActionResult<IEnumerable<Burger>> GetAll()
         {
             try
             {
@@ -59,7 +35,21 @@ namespace burgershack.Controllers
             }
         }
 
-        public ActionResult<Burger> GetOne()
+        [HttpPost]
+        public ActionResult<Burger> Create([FromBody] Burger newBurger)
+        {
+            try
+            {
+                Burger burger = (Burger)_bs.Create(newBurger);
+                return Ok(newBurger);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        public ActionResult<Burger> GetById(int id)
         {
             try
             {
@@ -71,7 +61,7 @@ namespace burgershack.Controllers
             }
         }
 
-        public ActionResult<Burger> Update()
+        public ActionResult<Burger> Update(Burger data)
         {
             try
             {
@@ -81,6 +71,43 @@ namespace burgershack.Controllers
             {
                 return BadRequest(e.Message);
             }
+        }
+        [HttpDelete]
+        public ActionResult<Burger> Delete(int id)
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        ActionResult<IEnumerable<Burger>> ICodeWorksRestfulController<Burger>.Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        ActionResult<Burger> ICodeWorksRestfulController<Burger>.GetOne(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        ActionResult<Burger> ICodeWorksRestfulController<Burger>.Create(Burger data)
+        {
+            throw new NotImplementedException();
+        }
+
+        ActionResult<Burger> ICodeWorksRestfulController<Burger>.Update(Burger data)
+        {
+            throw new NotImplementedException();
+        }
+
+        ActionResult<Burger> ICodeWorksRestfulController<Burger>.Delete(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
