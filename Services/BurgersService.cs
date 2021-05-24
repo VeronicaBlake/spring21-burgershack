@@ -49,6 +49,11 @@ namespace burgershack.Services
             }
             throw new Exception("Something went terribly wrong");
         }
+        internal void Delete(int id)
+        {
+            GetOne(id);
+            _repo.Delete(id);
+        }
 
     }
 }

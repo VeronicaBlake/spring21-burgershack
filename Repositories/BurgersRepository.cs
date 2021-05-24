@@ -51,6 +51,12 @@ namespace burgershack.Repositories
             int affectedRows = _db.Execute(sql, original);
             return affectedRows == 1;
         }
+        public bool Delete(int id)
+        {
+            string sql = "DELETE FROM burger WHERE id = @id LIMIT 1";
+            int affectedRows = _db.Execute(sql, new { id });
+            return affectedRows == 1;
+        }
     }
 
 }

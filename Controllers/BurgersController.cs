@@ -75,12 +75,14 @@ namespace burgershack.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public ActionResult<Burger> Delete(int id)
         {
             try
             {
-                throw new NotImplementedException();
+                _bs.Delete(id);
+                return Ok("Delorted");
+
             }
             catch (Exception e)
             {

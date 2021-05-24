@@ -21,7 +21,12 @@ namespace burgershack.Repositories
             throw new System.NotImplementedException();
         }
 
-        public bool Update(Drink data)
+        public bool Update(Drink id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool Delete(int id)
         {
             throw new System.NotImplementedException();
         }

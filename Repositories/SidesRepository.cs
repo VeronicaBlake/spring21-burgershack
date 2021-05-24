@@ -25,6 +25,11 @@ namespace burgershack.Repositories
         {
             throw new System.NotImplementedException();
         }
+
+        public bool Delete(int id)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
 }
